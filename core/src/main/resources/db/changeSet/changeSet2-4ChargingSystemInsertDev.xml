@@ -1,0 +1,53 @@
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet id="2-4" author="czechp" context="development">
+        <insert tableName="charging_systems">
+            <column name="uuid" value="6be9f430-a16d-11ed-a8fc-0242ac120002"/>
+            <column name="name" value="UTB-1"/>
+            <column name="address" value="192.168.0.1"/>
+            <column name="network_mask" value="255.255.255.0"/>
+        </insert>
+        <insert tableName="charging_systems">
+            <column name="uuid" value="6be9f7c8-a16d-11ed-a8fc-0242ac120002"/>
+            <column name="name" value="UTB-2"/>
+            <column name="address" value="192.168.0.2"/>
+            <column name="network_mask" value="255.255.255.0"/>
+        </insert>
+        <insert tableName="charging_systems">
+            <column name="uuid" value="6be9f962-a16d-11ed-a8fc-0242ac120002"/>
+            <column name="name" value="UTB-3"/>
+            <column name="address" value="192.168.0.3"/>
+            <column name="network_mask" value="255.255.255.0"/>
+        </insert>
+
+        <insert tableName="chargers">
+            <column name="uuid" value="642e8c55-4850-4e12-8fe7-a86c12044142"/>
+            <column name="charging_system_id" value="1"/>
+            <column name="position" value="1"/>
+        </insert>
+        <insert tableName="chargers">
+            <column name="uuid" value="642e8c55-4850-4e12-8fe7-a86c12044145"/>
+            <column name="charging_system_id" value="1"/>
+            <column name="position" value="2"/>
+        </insert>
+        <insert tableName="chargers">
+            <column name="uuid" value="642e8c55-4850-4e12-8fe7-a86c12044146"/>
+            <column name="charging_system_id" value="1"/>
+            <column name="position" value="3"/>
+        </insert>
+
+        <insert tableName="assigned_carts">
+            <column name="charger_id" value="1"/>
+            <column name="cart_id" value="1"/>
+        </insert>
+
+        <insert tableName="assigned_carts">
+            <column name="charger_id" value="1"/>
+            <column name="cart_id" value="2"/>
+        </insert>
+
+    </changeSet>
+</databaseChangeLog>

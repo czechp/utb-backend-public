@@ -1,0 +1,25 @@
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet id="2-5" author="pczech">
+        <preConditions>
+            <tableExists tableName="chargers"/>
+            <tableExists tableName="carts"/>
+        </preConditions>
+        <createView viewName="chargers_view" replaceIfExists="true">
+            select
+            ch.id,
+            ch.charging_system_id,
+            ch.charging_interruption_error,
+            ch.cart_not_match_error,
+            ch.position,
+            ch.current,
+            ch.charging,
+            c.umup_number as current_cart
+            from chargers ch left join carts c on ch.current_cart=c.id
+        </createView>
+    </changeSet>
+
+</databaseChangeLog>

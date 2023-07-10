@@ -1,0 +1,4 @@
+/.idea
+/target
+**target
+/docker/utb-backend.jar

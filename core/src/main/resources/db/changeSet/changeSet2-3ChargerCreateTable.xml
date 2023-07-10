@@ -1,0 +1,41 @@
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="2-3" author="czechp">
+        <createTable tableName="chargers">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="version" type="bigint" defaultValue="0"/>
+            <column name="uuid" type="varchar(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="timestamp" defaultValueComputed="CURRENT_TIMESTAMP"/>
+            <column name="updated_at" type="timestamp" defaultValueComputed="CURRENT_TIMESTAMP"/>
+            <column name="created_by" type="varchar(50)" defaultValue="GENERATED"/>
+            <column name="modified_by" type="varchar(50)" defaultValue="GENERATED"/>
+            <column name="charging_system_id" type="bigint">
+                <constraints foreignKeyName="fk_charging_systems_chargers" references="charging_systems(id)"/>
+            </column>
+            <column name="position" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cart_not_match_error" type="bool" defaultValue="false"/>
+            <column name="charging_interruption_error" type="bool" defaultValue="false"/>
+            <column name="current" type="float" defaultValue="0.0"/>
+            <column name="charging" type="bool" defaultValue="false"/>
+            <column name="current_cart" type="number" defaultValue="0"/>
+            <column name="charging_without_cart_error" type="bool" defaultValue="false"/>
+        </createTable>
+
+        <createTable tableName="assigned_carts">
+            <column type="bigint" name="charger_id">
+                <constraints foreignKeyName="fk_chargers_assigned_carts"/>
+            </column>
+            <column type="bigint" name="cart_id"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

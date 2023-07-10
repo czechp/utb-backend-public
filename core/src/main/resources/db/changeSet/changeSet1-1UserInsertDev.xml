@@ -1,0 +1,42 @@
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <property name="now_shifted" value="DATEADD(MINUTE, 20, CURRENT_TIMESTAMP)" dbms="h2"/>
+    <changeSet id="1-1" author="czechp" context="development">
+        <insert tableName="users">
+            <column name="uuid" value="6be9f430-a16d-11ed-a8fc-0242ac120002"/>
+            <column name="username" value="user"/>
+            <column name="email" value="user@user123.com"/>
+            <!--            pwd: user-->
+            <column name="password" value="$2a$10$.GXMHvUrR67kNPeGhFOY0eyVe1BuOYPyt4JUuuFcgrGh.SqEX/7HW"/>
+            <column name="confirm_token" value="user-confirm-token"/>
+            <column name="confirm_token_expired_at" valueComputed="${now_shifted}"/>
+            <column name="confirmed" value="true"/>
+            <column name="user_role" value="USER"/>
+        </insert>
+        <insert tableName="users">
+            <column name="uuid" value="6be9f7c8-a16d-11ed-a8fc-0242ac120002"/>
+            <column name="username" value="management"/>
+            <column name="email" value="management@management123.com"/>
+            <!--            pwd: management-->
+            <column name="password" value="$2a$10$1.21092usBwjemRUb4f.PuUXGsrfPUaiFA5d0b06YHd7zZ3TvgvEy"/>
+            <column name="confirm_token" value="management-confirm-token"/>
+            <column name="confirm_token_expired_at" valueComputed="${now_shifted}"/>
+            <column name="confirmed" value="true"/>
+            <column name="user_role" value="MANAGEMENT"/>
+        </insert>
+        <insert tableName="users">
+            <column name="uuid" value="6be9f962-a16d-11ed-a8fc-0242ac120002"/>
+            <column name="username" value="admin"/>
+            <column name="email" value="admin@admin123.com"/>
+            <!--            pwd: admin-->
+            <column name="password" value="$2a$10$TGagqwJPbYj213q5txS9EO9f2lcBvf74UZnHtwuan2mViIMA3V1f."/>
+            <column name="confirm_token" value="admin-confirm-token"/>
+            <column name="confirm_token_expired_at" valueComputed="${now_shifted}"/>
+            <column name="confirmed" value="true"/>
+            <column name="user_role" value="ADMIN"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

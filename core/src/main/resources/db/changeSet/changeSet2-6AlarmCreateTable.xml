@@ -1,0 +1,35 @@
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="2-6" author="czechp">
+        <createTable tableName="alarms">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="version" type="bigint" defaultValue="0"/>
+            <column name="uuid" type="varchar(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="timestamp" defaultValueComputed="CURRENT_TIMESTAMP"/>
+            <column name="updated_at" type="timestamp" defaultValueComputed="CURRENT_TIMESTAMP"/>
+            <column name="created_by" type="varchar(50)" defaultValue="GENERATED"/>
+            <column name="modified_by" type="varchar(50)" defaultValue="GENERATED"/>
+            <column name="charging_system_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="charger_position" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="alarm_type" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="confirmed" type="boolean" defaultValue="false"/>
+            <column name="description" type="varchar(300)" defaultValue=""/>
+
+        </createTable>
+
+    </changeSet>
+</databaseChangeLog>

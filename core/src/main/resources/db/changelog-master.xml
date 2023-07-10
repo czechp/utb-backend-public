@@ -1,0 +1,25 @@
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <include file="changeSet/changeSet1-0UserCreateTable.xml" relativeToChangelogFile="true"/>
+    <include file="changeSet/changeSet1-1UserInsertDev.xml" relativeToChangelogFile="true"/>
+    <include file="changeSet/changeSet1-2UserInsertTest.xml" relativeToChangelogFile="true"/>
+    <include file="changeSet/changeSet1-3UserAddColumnConfirmedByAdmin.xml" relativeToChangelogFile="true"/>
+    <include file="changeSet/changeSet1-4UserUpdateConfirmByAdminDev.xml" relativeToChangelogFile="true"/>
+    <include file="changeSet/changeSet1-5UserAddColumnRestorePassword.xml" relativeToChangelogFile="true"/>
+    <include file="changeSet/changeSet1-6UpdateRestorePasswordTokenTest.xml" relativeToChangelogFile="true"/>
+    <include file="changeSet/changeSet2-0CartCreateTable.xml" relativeToChangelogFile="true"/>
+    <include file="changeSet/changeSet2-1CartInsertDev.xml" relativeToChangelogFile="true"/>
+    <include file="changeSet/changeSet2-2ChargingSystemCreateTable.xml" relativeToChangelogFile="true"/>
+    <include file="changeSet/changeSet2-3ChargerCreateTable.xml" relativeToChangelogFile="true"/>
+    <include file="changeSet/changeSet2-4ChargingSystemInsertDev.xml" relativeToChangelogFile="true"/>
+    <include file="changeSet/changeSet2-5ChargerCreateView.xml" relativeToChangelogFile="true"/>
+    <include file="changeSet/changeSet2-6AlarmCreateTable.xml" relativeToChangelogFile="true"/>
+    <include file="changeSet/changeSet2-7AlarmsInsertDev.xml" relativeToChangelogFile="true"/>
+    <include file="changeSet/changeSet2-8ChargingsCreateTable.xml" relativeToChangelogFile="true"/>
+    <include file="changeSet/changeSet2-9ChargingsInsertDev.xml" relativeToChangelogFile="true"/>
+    <include file="changeSet/changeSet2-9NotificationCreateTable.xml" relativeToChangelogFile="true"/>
+    <include file="changeSet/changeSet2-10NotificationsInsertDev.xml" relativeToChangelogFile="true"/>
+</databaseChangeLog>

@@ -1,0 +1,23 @@
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet id="2-1" author="czechp" context="development">
+        <insert tableName="carts">
+            <column name="uuid" value="6be9f430-a16d-11ed-a8fc-0242ac123002"/>
+            <column name="umup_number" value="M1234"/>
+            <column name="description" value="M1234 description" />
+        </insert>
+        <insert tableName="carts">
+            <column name="uuid" value="6be9d7c8-a16d-11ed-a8fc-0242ac120002"/>
+            <column name="umup_number" value="M5678"/>
+            <column name="description" value="M5678 description" />
+        </insert>
+        <insert tableName="carts">
+            <column name="uuid" value="6be9fs62-a16d-11ed-a8fc-0242ac120002"/>
+            <column name="umup_number" value="M6789"/>
+            <column name="description" value="M6789 description" />
+        </insert>
+    </changeSet>
+</databaseChangeLog>

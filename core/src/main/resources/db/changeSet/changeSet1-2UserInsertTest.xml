@@ -1,0 +1,32 @@
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <property name="now_shifted" value="DATEADD(MINUTE, 20, CURRENT_TIMESTAMP)" dbms="h2"/>
+
+    <changeSet id="1-2" author="czechp" context="test">
+        <insert tableName="users">
+            <column name="uuid" value="826b8f52-a16d-11ed-a8fc-0242ac120002"/>
+            <column name="username" value="UsedUsername"/>
+            <column name="email" value="testUser@gmail.com"/>
+            <column name="password" value="$2a$10$.GXMHvUrR67kNPeGhFOY0eyVe1BuOYPyt4JUuuFcgrGh.SqEX/7HW"/>
+            <column name="confirm_token" value="user-confirm-token"/>
+            <column name="confirm_token_expired_at" valueComputed="${now_shifted}"/>
+            <column name="confirmed" value="false"/>
+            <column name="user_role" value="USER"/>
+        </insert>
+        <insert tableName="users">
+            <column name="uuid" value="826b8f52-a16d-11ed-a8fc-0242ac120003"/>
+            <column name="username" value="UsedUsername"/>
+            <column name="email" value="testManagement@gmail.com"/>
+            <column name="password" value="$2a$10$.GXMHvUrR67kNPeGhFOY0eyVe1BuOYPyt4JUuuFcgrGh.SqEX/7HW"/>
+            <column name="confirm_token" value="user-confirm-token-expired"/>
+            <column name="confirm_token_expired_at" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="confirmed" value="false"/>
+            <column name="user_role" value="USER"/>
+        </insert>
+
+
+    </changeSet>
+</databaseChangeLog>

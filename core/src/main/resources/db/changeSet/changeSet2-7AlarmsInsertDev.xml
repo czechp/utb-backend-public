@@ -1,0 +1,37 @@
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet id="2-7" author="czechp" context="development">
+        <insert tableName="alarms">
+            <column name="uuid" value="6be9f430-a16d-11ed-a8fc-0242ac120002"/>
+            <column name="charging_system_id" value="1"/>
+            <column name="charger_position" value="1"/>
+            <column name="alarm_type" value="CHARGING_INTERRUPTED"/>
+            <column name="confirmed" value="false"/>
+            <column name="description" value="Some empty description"/>
+            <column name="created_at" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="alarms">
+            <column name="uuid" value="6be9f7c8-a26d-11ed-a8fc-0242ac120002"/>
+            <column name="charging_system_id" value="1"/>
+            <column name="charger_position" value="1"/>
+            <column name="alarm_type" value="CART_NOT_MATCH"/>
+            <column name="confirmed" value="true"/>
+            <column name="description" value="Some empty description"/>
+            <column name="created_at" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="alarms">
+            <column name="uuid" value="6be9f932-a16d-11ed-a8fc-3242ac120002"/>
+            <column name="charging_system_id" value="1"/>
+            <column name="charger_position" value="1"/>
+            <column name="alarm_type" value="CHARGING_WITHOUT_CART"/>
+            <column name="confirmed" value="true"/>
+            <column name="description" value="Some empty description"/>
+            <column name="created_at" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+
+
+    </changeSet>
+</databaseChangeLog>
